@@ -54,8 +54,6 @@ const AddBlog = ({ handleAdd }) => {
                 </div>
                 <button type='submit' onClick={handleSubmit}>Add Blog</button>
             </form>
-
-            
         </div>
     )
 }
