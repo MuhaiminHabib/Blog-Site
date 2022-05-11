@@ -7,6 +7,7 @@ import Blogs from './components/Blogs';
 import Header from './components/Header';
 import Search from './components/Search';
 import ShowBlog from './components/ShowBlog';
+import EditBlog from './components/EditBlog';
 
 
 
@@ -72,7 +73,7 @@ function App() {
           />
           <Route 
             path="/blogEdit/:id" 
-            element={<ShowBlog 
+            element={<EditBlog 
               blogs={blogs}
               setBlogs={setBlogs}  
             />}  

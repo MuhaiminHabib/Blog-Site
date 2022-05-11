@@ -1,4 +1,24 @@
-const EditBlog = () => {
+import { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+
+const EditBlog = ({ blogs, setBlogs }) => {
+    let navigate = useNavigate();
+    const { id } = useParams();
+    const [editTitle, setEditTitle] = useState('');
+    const [editDescription, setEditDescription] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+
+        if(!title.length) {
+             return alert("Please enter a title");
+        } else {
+            handleAdd(title, description);
+            navigate('/')
+        }
+    }
+
     return (
         <div className="addBlog__container">
             <form className="addBlog__form">
