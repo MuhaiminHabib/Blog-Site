@@ -70,6 +70,13 @@ function App() {
               setBlogs={setBlogs}  
             />}  
           />
+          <Route 
+            path="/blogEdit/:id" 
+            element={<ShowBlog 
+              blogs={blogs}
+              setBlogs={setBlogs}  
+            />}  
+          />
         </Routes>
       </Router>
     </div>
