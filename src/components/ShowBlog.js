@@ -6,9 +6,7 @@ const ShowBlog = ({ blogs, setBlogs}) => {
     const { id } = useParams();
     const blog = blogs.filter(blog => {return blog.id === parseInt(id)})
 
-    const handleEdit = () => {
-        console.log("i will edit")
-      };
+    
     
       const handleDelete = (id) => {
         const newBlogs = blogs.filter(blog => {return blog.id !== parseInt(id)});
@@ -33,7 +31,7 @@ const ShowBlog = ({ blogs, setBlogs}) => {
                         text="Edit"
                         color="white"
                         bgColor="Green"
-                        onClick={handleEdit}
+                        // onClick={handleEdit}
                     />
                 </Link>
                 

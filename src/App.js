@@ -56,6 +56,16 @@ function App() {
     setBlogs([...blogs, newBlog]);
   }
 
+  const handleEdit = (id, editTitle, editDescription, editDateTime) => {
+
+    console.log(id);
+    console.log(editTitle);
+    console.log(editDescription)
+    console.log(editDateTime)
+
+    setBlogs(blogs.map(blog => (blog.id === id ? {...blog, title: editTitle, body: editDescription, dateTime:editDateTime} : blog)))
+  }
+
   return (
     <div className="app">
       <Router>
@@ -76,6 +86,7 @@ function App() {
             element={<EditBlog 
               blogs={blogs}
               setBlogs={setBlogs}  
+              handleEdit={handleEdit}
             />}  
           />
         </Routes>
