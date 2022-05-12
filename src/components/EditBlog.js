@@ -4,8 +4,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 const EditBlog = ({ blogs, setBlogs }) => {
     let navigate = useNavigate();
     const { id } = useParams();
-    const [editTitle, setEditTitle] = useState('');
-    const [editDescription, setEditDescription] = useState('');
+    const blog = blogs.filter(blog => {return blog.id === parseInt(id)})
+    // const [editTitle, setEditTitle] = useState('');
+    // const [editDescription, setEditDescription] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,7 +15,10 @@ const EditBlog = ({ blogs, setBlogs }) => {
         if(!title.length) {
              return alert("Please enter a title");
         } else {
-            handleAdd(title, description);
+            //add edit functionality here
+            // blog[0].title
+            // blog[0].dateTime
+            // blog[0].body
             navigate('/')
         }
     }

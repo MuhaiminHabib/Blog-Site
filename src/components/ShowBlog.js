@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import Button from './Button';
 
 const ShowBlog = ({ blogs, setBlogs}) => {
@@ -28,12 +28,15 @@ const ShowBlog = ({ blogs, setBlogs}) => {
                 </article>
             </div>
             <div className='blog__controls'>
-                <Button 
-                    text="Edit"
-                    color="white"
-                    bgColor="Green"
-                    onClick={handleEdit}
-                />
+                <Link to={`/blogEdit/${blog[0].id}`}>
+                    <Button 
+                        text="Edit"
+                        color="white"
+                        bgColor="Green"
+                        onClick={handleEdit}
+                    />
+                </Link>
+                
                 <Button 
                     text="Delete"
                     color="white"
