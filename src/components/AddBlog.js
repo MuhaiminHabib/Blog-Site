@@ -37,6 +37,8 @@ const AddBlog = ({ handleAdd }) => {
                             onChange={(e) => setTitle(e.target.value)}
                         />
                     </div>
+                </div>
+                <div className="addBlog__form__formControl">
                     <div className="blog__text">
                         <label 
                             htmlFor="blog__text__body">
