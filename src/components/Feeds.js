@@ -1,11 +1,11 @@
 import Blogs from "./Blogs";
 import Search from "./Search";
 
-const Feeds = ({ blogs }) => {
+const Feeds = ({ blogs, matchedBlogs, setMatchedBlogs }) => {
     return (
         <main>
-            <Search blogs={blogs}/>
-            <Blogs blogs={blogs}/>
+            <Search blogs={blogs} setMatchedBlogs={setMatchedBlogs}/>
+            <Blogs blogs={matchedBlogs}/>
         </main>
     )
 }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import dateFormat from "dateformat";
 import './App.css';
+
 import AddBlog from './components/AddBlog';
 import Header from './components/Header';
 import ShowBlog from './components/ShowBlog';
@@ -32,7 +33,7 @@ function App() {
     }
   ])
 
-  
+  const [matchedBlogs, setMatchedBlogs] = useState([])
 
   const handleAdd = (title, description) => {
     console.log("i was called");
@@ -73,7 +74,11 @@ function App() {
         <Header />
         {/* <Search blogs={blogs}/> */}
         <Routes>
-          <Route path="/" element={<Feeds blogs={blogs} />} />
+          <Route path="/" element={<Feeds 
+            blogs={blogs} 
+            matchedBlogs = {matchedBlogs}
+            setMatchedBlogs = {setMatchedBlogs}
+          />} />
           <Route path="/addBlog" element={<AddBlog handleAdd={handleAdd}/>} />
           <Route 
             path="/blogDetails/:id" 

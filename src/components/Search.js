@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
-const Search = ({ blogs }) => {
+const Search = ({ blogs, setMatchedBlogs }) => {
     const [searchPattern, setSearchPattern] = useState('');
-    const [matchedBlogs, setMatchedBlogs] = useState([])
+   
 
     useEffect(() => {
         console.log(searchPattern)
