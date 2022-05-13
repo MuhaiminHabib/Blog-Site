@@ -3,13 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import dateFormat from "dateformat";
 import './App.css';
 import AddBlog from './components/AddBlog';
-import Blogs from './components/Blogs';
 import Header from './components/Header';
-import Search from './components/Search';
 import ShowBlog from './components/ShowBlog';
 import EditBlog from './components/EditBlog';
+import Feeds from './components/Feeds';
 
-
+// feeds, showBlog, editBlog are <main>
 
 function App() {
   const [blogs, setBlogs] = useState([
@@ -32,6 +31,8 @@ function App() {
       dateTime: "Saturday, June 11th, 2021, 5:46:21 PM"
     }
   ])
+
+  
 
   const handleAdd = (title, description) => {
     console.log("i was called");
@@ -70,9 +71,9 @@ function App() {
     <div className="app">
       <Router>
         <Header />
-        <Search blogs={blogs}/>
+        {/* <Search blogs={blogs}/> */}
         <Routes>
-          <Route path="/" element={<Blogs blogs={blogs} />} />
+          <Route path="/" element={<Feeds blogs={blogs} />} />
           <Route path="/addBlog" element={<AddBlog handleAdd={handleAdd}/>} />
           <Route 
             path="/blogDetails/:id" 
