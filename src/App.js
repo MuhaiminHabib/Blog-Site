@@ -8,6 +8,7 @@ import Header from './components/Header';
 import ShowBlog from './components/ShowBlog';
 import EditBlog from './components/EditBlog';
 import Feeds from './components/Feeds';
+import Footer from './components/Footer';
 
 // feeds, showBlog, editBlog are <main>
 
@@ -72,7 +73,6 @@ function App() {
     <div className="app">
       <Router>
         <Header />
-        {/* <Search blogs={blogs}/> */}
         <Routes>
           <Route path="/" element={<Feeds 
             blogs={blogs} 
@@ -96,6 +96,7 @@ function App() {
             />}  
           />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );
