@@ -70,7 +70,7 @@ function App() {
     <div className="app">
       <Router>
         <Header />
-        <Search />
+        <Search blogs={blogs}/>
         <Routes>
           <Route path="/" element={<Blogs blogs={blogs} />} />
           <Route path="/addBlog" element={<AddBlog handleAdd={handleAdd}/>} />
