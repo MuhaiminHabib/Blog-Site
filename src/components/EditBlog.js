@@ -19,7 +19,7 @@ const EditBlog = ({ blogs, handleEdit }) => {
         if(!blog[0].title.length) {
              return alert("Please enter a title");
         } else {
-            let editDateTime = dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM:ss TT");
+            let editDateTime = dateFormat(new Date(), "fullDate");
             // console.log(editDescription);
             handleEdit(parseInt(id), editTitle, editDescription, editDateTime)
             navigate('/')

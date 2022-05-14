@@ -18,19 +18,19 @@ function App() {
       id:1,
       title: "My First Post",
       body: "This is the description of my post",
-      dateTime: "Saturday, June 9th, 2021, 5:46:21 PM"
+      dateTime: "Saturday, May 14, 2022"
     },
     {
       id:2,
       title: "My Second Post",
       body: "This is the description of my post",
-      dateTime: "Saturday, June 10th, 2021, 5:46:21 PM"
+      dateTime: "Saturday, May 14, 2022"
     },
     {
       id:6,
       title: "My Third Post",
       body: "Post Descripiton",
-      dateTime: "Saturday, June 11th, 2021, 5:46:21 PM"
+      dateTime: "Saturday, May 14, 2022"
     }
   ])
 
@@ -48,7 +48,7 @@ function App() {
     console.log(`blogs length is: ${blogs.length}`)
     console.log(`id is ${id}`)
 
-    let dateTime = dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM:ss TT");
+    let dateTime = dateFormat(new Date(), "fullDate");
     
     const newBlog = {
       id: id,
