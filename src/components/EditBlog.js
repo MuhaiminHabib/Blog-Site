@@ -27,40 +27,41 @@ const EditBlog = ({ blogs, handleEdit }) => {
     }
 
     return (
-        <div className="editBlog__container">
-            <form className="editBlog__form">
-                <div className="editBlog__form__formControl">
-                    <div className="blog__text">
-                        <label 
-                            htmlFor="blog__text__title">
-                                Blog Title
-                        </label>
-                        <input 
-                            id="blog__text__title"
-                            type="text"
-                            placeholder="Enter Blog Title"
-                            value={editTitle}
-                            onChange={(e) => setEditTitle(e.target.value)}
-                        />
+        <main className='main_section'>
+            <div className="editBlog__container">
+                <form className="editBlog__form">
+                    <div className="editBlog__form__formControl">
+                        <div className="blog__text">
+                            <label 
+                                htmlFor="blog__text__title">
+                                    Blog Title
+                            </label>
+                            <input 
+                                id="blog__text__title"
+                                type="text"
+                                placeholder="Enter Blog Title"
+                                value={editTitle}
+                                onChange={(e) => setEditTitle(e.target.value)}
+                            />
+                        </div>
+                        <div className="blog__text">
+                            <label 
+                                htmlFor="blog__text__body">
+                                    Blog Descripiton
+                            </label>
+                            <input 
+                                id="blog__text__body"
+                                type="text"
+                                placeholder="Enter Blog Descripiton"
+                                value={editDescription}
+                                onChange={(e) => setEditDescription(e.target.value)}
+                            />
+                        </div>
                     </div>
-                    <div className="blog__text">
-                        <label 
-                            htmlFor="blog__text__body">
-                                Blog Descripiton
-                        </label>
-                        <input 
-                            id="blog__text__body"
-                            type="text"
-                            placeholder="Enter Blog Descripiton"
-                            value={editDescription}
-                            onChange={(e) => setEditDescription(e.target.value)}
-                        />
-                    </div>
-                
-                </div>
-                <button type='submit' onClick={handleSubmit}>Update Blog</button>
-            </form>
-        </div>
+                    <button type='submit' onClick={handleSubmit}>Update Blog</button>
+                </form>
+            </div>
+        </main>
     )
 }
 
