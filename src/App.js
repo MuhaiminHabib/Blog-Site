@@ -15,20 +15,24 @@ import Footer from './components/Footer';
 function App() {
   const postUrl = "http://localhost:8000/blogs";
   
-  const [blogs, setBlogs] = useState([
-    {
-      id: 20,
-      title: "one",
-      body: "This is the description of my post",
-      dateTime: "Saturday, May 14, 2022" 
-    }
-
-  ]);
+  const [blogs, setBlogs] = useState([]);
   const [matchedBlogs, setMatchedBlogs] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   // const [fetchError, setFetchError] = useState(null);
 
+useEffect(() => {
+  const getDataFromServer = async () => {
+    setIsLoading(true)
+    const response = await fetch(postUrl);
+    const data = await response.json();
+    console.log(data);
+    setBlogs([...data])
+    setIsLoading(false)
+  }
 
+  getDataFromServer()
+
+}, [])
 
 
 
