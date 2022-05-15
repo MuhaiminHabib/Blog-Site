@@ -108,6 +108,7 @@ useEffect(() => {
             path="/" 
             element={<Feeds 
               blogs={blogs} 
+              isLoading = {isLoading}
               matchedBlogs = {matchedBlogs}
               setMatchedBlogs = {setMatchedBlogs}
             />} 
