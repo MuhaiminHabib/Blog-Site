@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import dateFormat from "dateformat";
 import './App.css';
@@ -13,28 +13,54 @@ import Footer from './components/Footer';
 // feeds, showBlog, editBlog are <main>
 
 function App() {
+  const postUrl = "http://localhost:8000/blogs";
+  
   const [blogs, setBlogs] = useState([
     {
-      id:1,
-      title: "My First Post",
+      id: 20,
+      title: "one",
       body: "This is the description of my post",
-      dateTime: "Saturday, May 14, 2022"
-    },
-    {
-      id:2,
-      title: "My Second Post",
-      body: "This is the description of my post",
-      dateTime: "Saturday, May 14, 2022"
-    },
-    {
-      id:6,
-      title: "My Third Post",
-      body: "Post Descripiton",
-      dateTime: "Saturday, May 14, 2022"
+      dateTime: "Saturday, May 14, 2022" 
     }
-  ])
 
-  const [matchedBlogs, setMatchedBlogs] = useState([])
+  ]);
+  const [matchedBlogs, setMatchedBlogs] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [fetchError, setFetchError] = useState(null);
+
+
+
+
+
+  // useEffect(() => {
+  //   const getTasksFromServer = async () => {
+  //     console.log("getting frm server")
+  //     try {
+  //       const response = await fetch(postUrl);
+  //       const data = await response.json();
+  //       console.log(data)
+  //       setBlogs(data)
+  //     } catch (err) {
+  //       console.log(err.stack)
+  //     } finally {
+  //       console.log(blogs)
+  //     }
+     
+  //   }
+  //   getTasksFromServer();
+      
+  // }, [])
+
+  //Fetch all Blogs
+  // const handleFetchAllBlogs = async () => {
+  //   const res = await fetch(postUrl);
+  //   const data = await res.json();
+  //   console.log(data)
+  //   return data;
+  // }
+  //Fetch a Blog
+
+  
 
   const handleAdd = (title, description) => {
     console.log("i was called");
@@ -74,12 +100,20 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Feeds 
-            blogs={blogs} 
-            matchedBlogs = {matchedBlogs}
-            setMatchedBlogs = {setMatchedBlogs}
-          />} />
-          <Route path="/addBlog" element={<AddBlog handleAdd={handleAdd}/>} />
+          <Route 
+            path="/" 
+            element={<Feeds 
+              blogs={blogs} 
+              matchedBlogs = {matchedBlogs}
+              setMatchedBlogs = {setMatchedBlogs}
+            />} 
+          />
+          <Route 
+              path="/addBlog" 
+              element={<AddBlog 
+                handleAdd={handleAdd}
+            />} 
+          />
           <Route 
             path="/blogDetails/:id" 
             element={<ShowBlog 
@@ -103,3 +137,6 @@ function App() {
 }
 
 export default App;
+
+
+
