@@ -8,7 +8,7 @@ const Search = ({ blogs, setMatchedBlogs }) => {
         console.log(searchPattern)
         let searchString = new RegExp(searchPattern, 'i');
         setMatchedBlogs(blogs.filter(blog => (searchString.test(blog.title))))
-    }, [searchPattern]);
+    }, [searchPattern, blogs]);
 
     return (
         <div className="search__container">
