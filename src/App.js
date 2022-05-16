@@ -86,6 +86,8 @@ useEffect(() => {
       body: description,
       dateTime: dateTime
     };
+
+
     setBlogs([...blogs, newBlog]);
   }
 
@@ -100,8 +102,12 @@ useEffect(() => {
   }
 
 
-  const handleServer = (url, {}) => {
-    
+  
+
+  const handleServerRequest = async (url, requestOptions) => {
+    const response = await fetch(url, requestOptions)
+    const data = await response.json()
+    return data;
   }
 
 
@@ -129,7 +135,7 @@ useEffect(() => {
             path="/blogDetails/:id" 
             element={<ShowBlog 
               blogs={blogs}
-              setBlogs={setBlogs}  
+              setBlogs={setBlogs}
             />}  
           />
           <Route 

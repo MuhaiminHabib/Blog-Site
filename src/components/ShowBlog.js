@@ -1,19 +1,20 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Button from './Button';
 
-const ShowBlog = ({ blogs, setBlogs}) => {
+const ShowBlog = ({ blogs, setBlogs }) => {
     const navigate = useNavigate();
     const { id } = useParams();
     const blog = blogs.filter(blog => {return blog.id === parseInt(id)})
 
-    
-    
-      const handleDelete = (id) => {
-        const newBlogs = blogs.filter(blog => {return blog.id !== parseInt(id)});
-        console.log(newBlogs)
-        setBlogs([...newBlogs])
-        navigate('/')
-      };
+
+
+const handleDelete = (id) => {
+    const newBlogs = blogs.filter(blog => {return blog.id !== parseInt(id)});
+    console.log(newBlogs)
+    setBlogs([...newBlogs])
+    navigate('/')
+    };
+
 
 
     return (
