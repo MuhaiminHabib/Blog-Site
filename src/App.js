@@ -13,7 +13,7 @@ import Footer from './components/Footer';
 // feeds, showBlog, editBlog are <main>
 
 function App() {
-  const postUrl = "http://localhost:8000/blogs";
+  const blogUrl = "http://localhost:8000/blogs";
   
   const [blogs, setBlogs] = useState([]);
   const [matchedBlogs, setMatchedBlogs] = useState([]);
@@ -23,7 +23,7 @@ function App() {
 useEffect(() => {
   const getDataFromServer = async () => {
     setIsLoading(true)
-    const response = await fetch(postUrl);
+    const response = await fetch(blogUrl);
     const data = await response.json();
     console.log(data);
     setBlogs([...data])
@@ -40,7 +40,7 @@ useEffect(() => {
   //   const getTasksFromServer = async () => {
   //     console.log("getting frm server")
   //     try {
-  //       const response = await fetch(postUrl);
+  //       const response = await fetch(blogUrl);
   //       const data = await response.json();
   //       console.log(data)
   //       setBlogs(data)
@@ -57,7 +57,7 @@ useEffect(() => {
 
   //Fetch all Blogs
   // const handleFetchAllBlogs = async () => {
-  //   const res = await fetch(postUrl);
+  //   const res = await fetch(blogUrl);
   //   const data = await res.json();
   //   console.log(data)
   //   return data;
@@ -98,6 +98,12 @@ useEffect(() => {
 
     setBlogs(blogs.map(blog => (blog.id === id ? {...blog, title: editTitle, body: editDescription, dateTime:editDateTime} : blog)))
   }
+
+
+  const handleServer = (url, {}) => {
+    
+  }
+
 
   return (
     <div className="app">
