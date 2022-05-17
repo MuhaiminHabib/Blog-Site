@@ -17,6 +17,12 @@
       "title": "My Third Post Updated",
       "body": "Post Descripiton",
       "dateTime": "Tuesday, May 17, 2022"
+    },
+    {
+      "id": 7,
+      "title": "fourth updated",
+      "body": "description",
+      "dateTime": "Tuesday, May 17, 2022"
     }
   ]
 }

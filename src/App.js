@@ -67,7 +67,7 @@ useEffect(() => {
 
   
 
-  const handleAdd = (title, description) => {
+  const handleAdd = async (title, description) => {
     console.log("i was called");
     console.log(title);
     console.log(description);
@@ -76,8 +76,8 @@ useEffect(() => {
         return blogs.length ? blogs[blogs.length - 1].id + 1 : 1;
     })()
 
-    console.log(`blogs length is: ${blogs.length}`)
-    console.log(`id is ${id}`)
+    // console.log(`blogs length is: ${blogs.length}`)
+    // console.log(`id is ${id}`)
 
     let dateTime = dateFormat(new Date(), "fullDate");
     
@@ -87,9 +87,18 @@ useEffect(() => {
       body: description,
       dateTime: dateTime
     };
-
-
     setBlogs([...blogs, newBlog]);
+
+    const addOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json' 
+      },
+      body: JSON.stringify({...newBlog})
+    }
+
+    const response = await ApiRequest(blogUrl, addOptions);
+    setFetchError(response)
   }
 
   const handleEdit = async (id, editTitle, editDescription, editDateTime) => {
