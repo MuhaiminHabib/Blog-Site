@@ -127,6 +127,20 @@ useEffect(() => {
   
   }
 
+  const handleDelete = async (id) => {
+    const newBlogs = blogs.filter(blog => {return blog.id !== parseInt(id)});
+    console.log(newBlogs)
+    setBlogs([...newBlogs])
+
+    const deleteUrl = `${blogUrl}/${id}`;
+    const deleteOptions = {
+      method: 'Delete'
+    }
+
+    const response = await ApiRequest(deleteUrl, deleteOptions);
+    setFetchError(response)
+};
+
   return (
     <div className="app">
       <Router>
@@ -152,6 +166,7 @@ useEffect(() => {
             element={<ShowBlog 
               blogs={blogs}
               setBlogs={setBlogs}
+              handleDelete={handleDelete}
             />}  
           />
           <Route 
