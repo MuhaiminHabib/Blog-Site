@@ -22,7 +22,7 @@ function App() {
   const [fetchError, setFetchError] = useState(null);
 
 
-  //use TryCatch and fetchError
+  //use TryCatch and fetchError 
 useEffect(() => {
   const getDataFromServer = async () => {
     setIsLoading(true)
@@ -92,7 +92,7 @@ useEffect(() => {
     setBlogs([...blogs, newBlog]);
   }
 
-  const handleEdit = (id, editTitle, editDescription, editDateTime) => {
+  const handleEdit = async (id, editTitle, editDescription, editDateTime) => {
 
     console.log(id);
     console.log(editTitle);
@@ -100,6 +100,22 @@ useEffect(() => {
     console.log(editDateTime)
 
     setBlogs(blogs.map(blog => (blog.id === id ? {...blog, title: editTitle, body: editDescription, dateTime:editDateTime} : blog)))
+  //const blogToEdit = blogs.filter(blog => (blog.id === parseInt(id) ? {}))
+
+
+    const editUrl = `${blogUrl}/${id}`;
+    const editOptions = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ title: editTitle, body: editDescription, dateTime:editDateTime })
+    }
+
+    const response = await ApiRequest(editUrl, editOptions);
+    console.log(response);
+    setFetchError(response);
+  
   }
 
   return (

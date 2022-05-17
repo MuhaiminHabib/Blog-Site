@@ -1,24 +1,22 @@
 {
-    "blogs": [
-        {
-            "id":1,
-            "title": "My First Post",
-            "body": "This is the description of my post",
-            "dateTime": "Saturday, May 14, 2022"
-        },
-
-        {
-            "id":2,
-            "title": "My Second Post",
-            "body": "This is the description of my post",
-            "dateTime": "Saturday, May 14, 2022"
-        },
-
-        {
-            "id":6,
-            "title": "My Third Post",
-            "body": "Post Descripiton",
-            "dateTime": "Saturday, May 14, 2022"
-        }
-    ]
+  "blogs": [
+    {
+      "id": 1,
+      "title": "My First Post",
+      "body": "This is the description of my post",
+      "dateTime": "Saturday, May 14, 2022"
+    },
+    {
+      "id": 2,
+      "title": "My Second Post",
+      "body": "This is the description of my post",
+      "dateTime": "Saturday, May 14, 2022"
+    },
+    {
+      "id": 6,
+      "title": "My Third Post Updated",
+      "body": "Post Descripiton",
+      "dateTime": "Tuesday, May 17, 2022"
+    }
+  ]
 }
