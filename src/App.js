@@ -101,16 +101,6 @@ useEffect(() => {
     setBlogs(blogs.map(blog => (blog.id === id ? {...blog, title: editTitle, body: editDescription, dateTime:editDateTime} : blog)))
   }
 
-
-  
-
-  const handleServerRequest = async (url, requestOptions) => {
-    const response = await fetch(url, requestOptions)
-    const data = await response.json()
-    return data;
-  }
-
-
   return (
     <div className="app">
       <Router>
