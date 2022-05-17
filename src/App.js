@@ -9,6 +9,7 @@ import ShowBlog from './components/ShowBlog';
 import EditBlog from './components/EditBlog';
 import Feeds from './components/Feeds';
 import Footer from './components/Footer';
+import ApiRequest from './ApiRequest';
 
 // feeds, showBlog, editBlog are <main>
 
@@ -18,8 +19,10 @@ function App() {
   const [blogs, setBlogs] = useState([]);
   const [matchedBlogs, setMatchedBlogs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  // const [fetchError, setFetchError] = useState(null);
+  const [fetchError, setFetchError] = useState(null);
 
+
+  //use TryCatch and fetchError
 useEffect(() => {
   const getDataFromServer = async () => {
     setIsLoading(true)
@@ -29,9 +32,7 @@ useEffect(() => {
     setBlogs([...data])
     setIsLoading(false)
   }
-
   getDataFromServer()
-
 }, [])
 
 
