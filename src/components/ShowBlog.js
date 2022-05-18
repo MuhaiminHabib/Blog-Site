@@ -1,5 +1,6 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Button from './Button';
+import styled from 'styled-components';
 
 const ShowBlog = ({ blogs, setBlogs, handleDelete }) => {
     const navigate = useNavigate();
