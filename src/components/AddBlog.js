@@ -53,7 +53,6 @@ const AddBlog = ({ handleAdd }) => {
                                 onChange={(e) => setDescription(e.target.value)}
                             />
                         </div>
-                    
                     </div>
                     <button type='submit' onClick={handleSubmit}>Add Blog</button>
                 </form>

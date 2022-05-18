@@ -6,18 +6,11 @@ const ShowBlog = ({ blogs, setBlogs, handleDelete }) => {
     const navigate = useNavigate();
     const { id } = useParams();
     const blog = blogs.filter(blog => {return blog.id === parseInt(id)})
-
-
-
-
+    
     const handleBlogDelete = (id) => {
         handleDelete(id)
         navigate('/')
     }
-
-
-
-
 
     return (
         <main className='main_section'>

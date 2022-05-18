@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import dateFormat from "dateformat";
+import styled from 'styled-components';
 import './App.css';
 
 import AddBlog from './components/AddBlog';
