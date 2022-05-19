@@ -23,6 +23,12 @@ const ShowBlog = ({ blogs, setBlogs, handleDelete }) => {
                     </article>
                 </div>
                 <div className='blog__controls'>
+                    <Button 
+                        text="Like"
+                        color="white"
+                        bgColor="red"
+                        onClick={() => {}}
+                    />
                     <Link to={`/blogEdit/${blog[0].id}`}>
                         <Button 
                             text="Edit"
