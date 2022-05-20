@@ -4,20 +4,22 @@
       "id": 1,
       "title": "My First Post updated",
       "body": "This is the description of my post",
+      "like": 0,
       "dateTime": "Thursday, May 19, 2022"
-      
     },
     {
       "id": 6,
       "title": "My Third Post here",
       "body": "Post Descripiton",
+      "like": 0,
       "dateTime": "Thursday, May 19, 2022"
     },
     {
       "id": 7,
-      "title": "Alal Bhaiya",
+      "title": "Alal Bhaiya updated",
       "body": "This is the updated description of my post",
-      "dateTime": "Thursday, May 19, 2022"
+      "like": 0,
+      "dateTime": "Friday, May 20, 2022"
     }
   ]
 }

@@ -6,7 +6,7 @@ const Search = ({ blogs, setMatchedBlogs }) => {
    
 
     useEffect(() => {
-        console.log(searchPattern)
+//        console.log(searchPattern)
         let searchString = new RegExp(searchPattern, 'i');
         setMatchedBlogs(blogs.filter(blog => (searchString.test(blog.title))))
     }, [searchPattern, blogs]);

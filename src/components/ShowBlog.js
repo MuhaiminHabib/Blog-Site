@@ -1,15 +1,26 @@
+import { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Button from './Button';
 import styled from 'styled-components';
 
-const ShowBlog = ({ blogs, setBlogs, handleDelete }) => {
+const ShowBlog = ({ blogs, handleDelete, handleLike }) => {
     const navigate = useNavigate();
     const { id } = useParams();
     const blog = blogs.filter(blog => {return blog.id === parseInt(id)})
-    
+
+
+    const [likeCount, setLikeCount] = useState(parseInt(blog[0].like));
+
+    console.log("likeCount state is saying: " + likeCount)
     const handleBlogDelete = (id) => {
         handleDelete(id)
         navigate('/')
+    }
+
+    const handleBlogLike = (id) => {
+        blog[0].like = parseInt(blog[0].like + 1);
+        setLikeCount(blog[0].like)
+        handleLike(id, likeCount);
     }
 
     return (
@@ -20,14 +31,15 @@ const ShowBlog = ({ blogs, setBlogs, handleDelete }) => {
                         <h1>{blog[0].title}</h1>
                         <p>{blog[0].dateTime}</p>
                         <p>{blog[0].body}</p>
+                        <h4>{blog[0].like}{blog[0].like !== 1  ? ' likes' : ' like'}</h4>
                     </article>
                 </div>
                 <div className='blog__controls'>
                     <Button 
                         text="Like"
                         color="white"
-                        bgColor="red"
-                        onClick={() => {}}
+                        bgColor="steelblue"
+                        onClick={() => {handleBlogLike(blog[0].id)}}
                     />
                     <Link to={`/blogEdit/${blog[0].id}`}>
                         <Button 
@@ -37,7 +49,6 @@ const ShowBlog = ({ blogs, setBlogs, handleDelete }) => {
                             // onClick={handleEdit}
                         />
                     </Link>
-                    
                     <Button 
                         text="Delete"
                         color="white"

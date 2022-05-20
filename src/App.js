@@ -23,13 +23,14 @@ function App() {
   const [fetchError, setFetchError] = useState(null);
 
 
+
   //use TryCatch and fetchError 
+  //need to refactor this fetch
 useEffect(() => {
   const getDataFromServer = async () => {
     setIsLoading(true)
     const response = await fetch(blogUrl);
     const data = await response.json();
-    console.log(data);
     setBlogs([...data])
     setIsLoading(false)
   }
@@ -67,7 +68,7 @@ useEffect(() => {
   //Fetch a Blog
 
   
-
+//================handle blog add=======================
   const handleAdd = async (title, description) => {
     console.log("i was called");
     console.log(title);
@@ -76,9 +77,6 @@ useEffect(() => {
     let id = (() => {
         return blogs.length ? blogs[blogs.length - 1].id + 1 : 1;
     })()
-
-    // console.log(`blogs length is: ${blogs.length}`)
-    // console.log(`id is ${id}`)
 
     let dateTime = dateFormat(new Date(), "fullDate");
     
@@ -97,22 +95,12 @@ useEffect(() => {
       },
       body: JSON.stringify({...newBlog})
     }
-
     const response = await ApiRequest(blogUrl, addOptions);
     setFetchError(response)
   }
-
+//================handle blog edit=======================
   const handleEdit = async (id, editTitle, editDescription, editDateTime) => {
-
-    console.log(id);
-    console.log(editTitle);
-    console.log(editDescription)
-    console.log(editDateTime)
-
     setBlogs(blogs.map(blog => (blog.id === id ? {...blog, title: editTitle, body: editDescription, dateTime:editDateTime} : blog)))
-  //const blogToEdit = blogs.filter(blog => (blog.id === parseInt(id) ? {}))
-
-
     const editUrl = `${blogUrl}/${id}`;
     const editOptions = {
       method: 'PATCH',
@@ -123,15 +111,35 @@ useEffect(() => {
     }
 
     const response = await ApiRequest(editUrl, editOptions);
-    console.log(response);
     setFetchError(response);
-  
   }
 
+
+  //================handle blog like=======================
+  const handleLike = async (id, likeCount) => {
+    const targetBlog = blogs.map(blog => (blog.id === parseInt(id) ? {...blog, like: likeCount} : blog))
+    setBlogs(targetBlog);
+    console.log(blogs)
+
+    const likeUrl = `${blogUrl}\${id}`;
+    const likeOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({like: likeCount})
+    }
+
+    const response = await ApiRequest(likeUrl, likeOptions);
+    setFetchError(response.json());
+   
+  }
+
+//================handle blog delete=======================
   const handleDelete = async (id) => {
-    const newBlogs = blogs.filter(blog => {return blog.id !== parseInt(id)});
-    console.log(newBlogs)
-    setBlogs([...newBlogs])
+    const newBlogsList = blogs.filter(blog => {return blog.id !== parseInt(id)});
+    console.log(newBlogsList)
+    setBlogs([...newBlogsList])
 
     const deleteUrl = `${blogUrl}/${id}`;
     const deleteOptions = {
@@ -166,8 +174,8 @@ useEffect(() => {
             path="/blogDetails/:id" 
             element={<ShowBlog 
               blogs={blogs}
-              setBlogs={setBlogs}
               handleDelete={handleDelete}
+              handleLike={handleLike}
             />}  
           />
           <Route 
