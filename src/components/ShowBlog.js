@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Button from './Button';
 import styled from 'styled-components';
@@ -12,14 +12,20 @@ const ShowBlog = ({ blogs, handleDelete, handleLike }) => {
     const [likeCount, setLikeCount] = useState(parseInt(blog[0].like));
 
     console.log("likeCount state is saying: " + likeCount)
+
+    useEffect(() => {
+        
+    }, [likeCount])
+
+
     const handleBlogDelete = (id) => {
         handleDelete(id)
         navigate('/')
     }
 
     const handleBlogLike = (id) => {
-        blog[0].like = parseInt(blog[0].like + 1);
-        setLikeCount(blog[0].like)
+    //    blog[0].like = parseInt(blog[0].like + 1);
+        setLikeCount(blog[0].like + 1)
         handleLike(id, likeCount);
     }
 
@@ -31,7 +37,7 @@ const ShowBlog = ({ blogs, handleDelete, handleLike }) => {
                         <h1>{blog[0].title}</h1>
                         <p>{blog[0].dateTime}</p>
                         <p>{blog[0].body}</p>
-                        <h4>{blog[0].like}{blog[0].like !== 1  ? ' likes' : ' like'}</h4>
+                        <h4>{likeCount}{blog[0].like !== 1  ? ' likes' : ' like'}</h4>
                     </article>
                 </div>
                 <div className='blog__controls'>

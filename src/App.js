@@ -84,6 +84,7 @@ useEffect(() => {
       id: id,
       title: title,
       body: description,
+      like: 0,
       dateTime: dateTime
     };
     setBlogs([...blogs, newBlog]);
@@ -121,9 +122,9 @@ useEffect(() => {
     setBlogs(targetBlog);
     console.log(blogs)
 
-    const likeUrl = `${blogUrl}\${id}`;
+    const likeUrl = `${blogUrl}/${id}`;
     const likeOptions = {
-      method: 'POST',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -131,7 +132,7 @@ useEffect(() => {
     }
 
     const response = await ApiRequest(likeUrl, likeOptions);
-    setFetchError(response.json());
+    setFetchError(response);
    
   }
 
