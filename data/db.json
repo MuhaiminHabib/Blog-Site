@@ -2,24 +2,23 @@
   "blogs": [
     {
       "id": 1,
-      "title": "My First Post updated",
+      "title": "My First Post",
       "body": "This is the description of my post",
       "like": 0,
-      "dateTime": "Thursday, May 19, 2022"
+      "dateTime": "Saturday, May 21, 2022"
     },
     {
       "id": 6,
-      "title": "My Third Post here",
+      "title": "My Third Post here up",
       "body": "Post Descripiton",
       "like": 0,
-      "dateTime": "Thursday, May 19, 2022"
+      "dateTime": "Saturday, May 21, 2022"
     },
     {
       "id": 7,
-      "title": "Alal Bhaiya updated",
-      "body": "This is the updated description of my post",
-      "like": 0,
-      "dateTime": "Friday, May 20, 2022"
+      "title": "Shohan",
+      "body": "description",
+      "dateTime": "Saturday, May 21, 2022"
     }
   ]
 }
