@@ -152,7 +152,7 @@ useEffect(() => {
 };
 
   return (
-    <div className="app">
+    <div className="container">
       <Router>
         <Header />
         <Routes>
