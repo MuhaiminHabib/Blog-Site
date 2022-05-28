@@ -3,25 +3,30 @@ import { Link } from "react-router-dom";
 
 const Nav = () => {
     return (
-        <div className="nav__container">
-            <nav className="nav">
-                <ul className="nav__list">
-                    <Link to="/">
-                        <li className="nav__list__item">Home</li>
-                    </Link>
-                    <Link to="/addBlog">
-                        <li className="nav__list__item">Add Blog</li>
-                    </Link>
-                    {/* <Link>
-                        <li className="nav__list__item">About</li>
-                    </Link> */}
-                    
-                    
-                    
-                </ul>
-            </nav>
-        </div>
+        <StyledNav className="nav">
+            <StyledList className="nav__list">
+                <Link to="/">
+                    <li className="nav__list__item">Home</li>
+                </Link>
+                <Link to="/addBlog">
+                    <li className="nav__list__item">Add Blog</li>
+                </Link>
+                <Link to="/about">
+                    <li className="nav__list__item">About</li>
+                </Link>    
+            </StyledList>
+        </StyledNav>
     )
 }
 
 export default Nav;
+
+
+const StyledNav = styled.nav`
+    
+`
+
+const StyledList = styled.ul`
+    display: flex;
+    gap: 2rem;
+`

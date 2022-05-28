@@ -8,8 +8,9 @@ import AddBlog from './components/AddBlog';
 import Header from './components/header/Header';
 import ShowBlog from './components/ShowBlog';
 import EditBlog from './components/EditBlog';
-import Feeds from './components/Feeds';
+import Feeds from './feeds/Feeds';
 import Footer from './components/Footer';
+import About from './components/about/About';
 import ApiRequest from './ApiRequest';
 
 // feeds, showBlog, editBlog are <main>
@@ -37,35 +38,6 @@ useEffect(() => {
   getDataFromServer()
 }, [])
 
-
-
-  // useEffect(() => {
-  //   const getTasksFromServer = async () => {
-  //     console.log("getting frm server")
-  //     try {
-  //       const response = await fetch(blogUrl);
-  //       const data = await response.json();
-  //       console.log(data)
-  //       setBlogs(data)
-  //     } catch (err) {
-  //       console.log(err.stack)
-  //     } finally {
-  //       console.log(blogs)
-  //     }
-     
-  //   }
-  //   getTasksFromServer();
-      
-  // }, [])
-
-  //Fetch all Blogs
-  // const handleFetchAllBlogs = async () => {
-  //   const res = await fetch(blogUrl);
-  //   const data = await res.json();
-  //   console.log(data)
-  //   return data;
-  // }
-  //Fetch a Blog
 
   
 //================handle blog add=======================
@@ -152,9 +124,10 @@ useEffect(() => {
 };
 
   return (
-    <div className="container">
+    
       <Router>
         <Header />
+        <Container>
         <Routes>
           <Route 
             path="/" 
@@ -187,10 +160,14 @@ useEffect(() => {
               handleEdit={handleEdit}
             />}  
           />
+          <Route 
+            path="/about" 
+            element={<About />}  
+          />
         </Routes>
+        </Container>
         <Footer />
       </Router>
-    </div>
   );
 }
 
@@ -198,7 +175,8 @@ export default App;
 
 
 const Container = styled.div`
-  wid
+  width: var(--container-width-lg);
+  margin: 0 auto;
 `
 
 

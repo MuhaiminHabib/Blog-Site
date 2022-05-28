@@ -1,5 +1,5 @@
-import Blogs from "./Blogs";
-import Search from "./Search";
+import Blogs from '../components/Blogs';
+import Search from './Search';
 
 const Feeds = ({ blogs, isLoading, matchedBlogs, setMatchedBlogs }) => {
     return (

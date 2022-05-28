@@ -3,11 +3,9 @@ import styled from 'styled-components';
 const Footer = () => {
     return (
         <footer> <p>I am footer </p>
-        <p>need to implement json server</p>
-        <p>error and loading</p>
+        {/* <p>error</p>
         <p>empty array</p>
-        <p>need to look into styled components</p>
-        <p></p>
+        <p>need to look into styled components</p> */}
 
             
         </footer>

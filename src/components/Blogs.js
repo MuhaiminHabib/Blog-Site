@@ -1,5 +1,5 @@
 import Blog from "./Blog";
-import Search from "./Search";
+
 
 const Blogs = ({ blogs, isLoading }) => {
     return (

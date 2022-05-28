@@ -34,10 +34,10 @@ html {
 
 
 body {
-    display: flex;
-    justify-content: center;
-    width: var(--container-width-lg);
-    margin: 0 auto;
+    
+    /* display: flex;
+    justify-content: flex-start; */
+    /* margin: 0 auto; */
     background-color: var(--color-bg-deep);
 }
 
@@ -46,7 +46,7 @@ a {
 }
 
 a:hover {
-    color: var(--color-text-hover);
+    color: yellow;
 }
 
 a:active {
