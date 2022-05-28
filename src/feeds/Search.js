@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
+import { BsSearch } from 'react-icons/bs';
 
 const Search = ({ blogs, setMatchedBlogs }) => {
     const [searchPattern, setSearchPattern] = useState('');
@@ -20,7 +21,7 @@ const Search = ({ blogs, setMatchedBlogs }) => {
                 </StyledSearchLabel>
                 <StyledSearchInput 
                     id="search__text__title"
-                    type="text"
+                    type="search"
                     placeholder="Enter Search Title"
                     value={searchPattern}
                     onChange={(e) => setSearchPattern(e.target.value)}
@@ -32,7 +33,9 @@ const Search = ({ blogs, setMatchedBlogs }) => {
 
 export default Search;
 
-const StyledSearchContainer = styled.div``
+const StyledSearchContainer = styled.div`
+    margin: 2rem 0 1rem;
+`
 
 const StyledSearchLabel = styled.label`
     position: absolute;
@@ -47,12 +50,11 @@ const StyledSearchInput = styled.input`
     border-radius: 0.5rem;
     border: none;
     width: 200px;
-    transition: width 0.4s ease-in-out;
+    transition: width 0.1s ease-in-out;
     border: 2px solid var(--color-bg);
 
     &:focus {
         font-size: 1.5rem;
-        width: 100%;
-
+        width: 80%;
     }
 `

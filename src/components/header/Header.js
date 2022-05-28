@@ -3,10 +3,13 @@ import Nav from './Nav';
 
 const Header = () => {
     return (
-        <StyledHeader>
-            <h1 className="header__logo">Blog Site</h1>
-            <Nav className="navigation"/>
-        </StyledHeader>
+        <StyledHeaderContainer >
+             <StyledHeader>
+                <h1 className="header__logo">Habib's Blog</h1>
+                <Nav className="navigation"/>
+            </StyledHeader>
+        </StyledHeaderContainer>
+       
         
     )
 }
@@ -14,11 +17,18 @@ const Header = () => {
 export default Header
 
 
+const StyledHeaderContainer = styled.div`
+    background-color: var(--color-primary-deep);
+    width: 100%;
+`
+
 
 const StyledHeader = styled.header`
     background-color: var(--color-primary-deep);
-    padding:2rem 6rem;
-    width: 100%;
+    padding:2rem 0rem;
+    margin: 0 auto;
+    width: var(--container-width-lg);
     display: flex;
     justify-content: space-between;
 `
+

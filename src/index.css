@@ -34,11 +34,18 @@ html {
 
 
 body {
-    
-    /* display: flex;
-    justify-content: flex-start; */
-    /* margin: 0 auto; */
     background-color: var(--color-bg-deep);
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+main {
+    
 }
 
 a {
@@ -46,7 +53,7 @@ a {
 }
 
 a:hover {
-    color: yellow;
+    color: #fff;
 }
 
 a:active {

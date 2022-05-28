@@ -175,6 +175,9 @@ export default App;
 
 
 const Container = styled.div`
+flex-grow: 100;
+overflow-y: scroll;
+border: 1px solid var(--color-text);
   width: var(--container-width-lg);
   margin: 0 auto;
 `
