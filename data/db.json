@@ -13,6 +13,13 @@
       "body": "This is the updated description of my post",
       "like": 28,
       "dateTime": "Sunday, May 22, 2022"
+    },
+    {
+      "id": 3,
+      "title": "My Third Post here",
+      "body": "hi",
+      "like": 0,
+      "dateTime": "Saturday, May 28, 2022"
     }
   ]
 }

@@ -3,12 +3,18 @@ import Nav from './Nav';
 
 const Header = () => {
     return (
-        <header className="header__container">
+        <StyledHeader className="header__container">
             <h1 className="header__logo">Blog Site</h1>
             <Nav className="navigation"/>
-        </header>
+        </StyledHeader>
         
     )
 }
 
 export default Header
+
+
+
+const StyledHeader = styled.header`
+    display: flex;
+`

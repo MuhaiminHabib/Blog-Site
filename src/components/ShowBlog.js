@@ -9,25 +9,25 @@ const ShowBlog = ({ blogs, handleDelete, handleLike }) => {
     const blog = blogs.filter(blog => {return blog.id === parseInt(id)})
 
 
-    const [likeCount, setLikeCount] = useState(parseInt(blog[0].like));
+    // const [likeCount, setLikeCount] = useState(parseInt(blog[0].like));
+    // console.log("likeCount state is saying: " + likeCount)
 
-    console.log("likeCount state is saying: " + likeCount)
-
-    useEffect(() => {
+    // useEffect(() => {
         
-    }, [likeCount])
+    // }, [likeCount])
 
+        // const handleBlogLike = (id) => {
+        // //    blog[0].like = parseInt(blog[0].like + 1);
+        //     setLikeCount(blog[0].like + 1)
+        //     handleLike(id, likeCount);
+        // }
 
     const handleBlogDelete = (id) => {
         handleDelete(id)
         navigate('/')
     }
 
-    const handleBlogLike = (id) => {
-    //    blog[0].like = parseInt(blog[0].like + 1);
-        setLikeCount(blog[0].like + 1)
-        handleLike(id, likeCount);
-    }
+
 
     return (
         <main className='main_section'>
@@ -37,16 +37,16 @@ const ShowBlog = ({ blogs, handleDelete, handleLike }) => {
                         <h1>{blog[0].title}</h1>
                         <p>{blog[0].dateTime}</p>
                         <p>{blog[0].body}</p>
-                        <h4>{likeCount}{blog[0].like !== 1  ? ' likes' : ' like'}</h4>
+                        {/* <h4>{likeCount}{blog[0].like !== 1  ? ' likes' : ' like'}</h4> */}
                     </article>
                 </div>
                 <div className='blog__controls'>
-                    <Button 
+                    {/* <Button 
                         text="Like"
                         color="white"
                         bgColor="steelblue"
                         onClick={() => {handleBlogLike(blog[0].id)}}
-                    />
+                    /> */}
                     <Link to={`/blogEdit/${blog[0].id}`}>
                         <Button 
                             text="Edit"

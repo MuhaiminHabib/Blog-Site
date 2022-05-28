@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import './App.css';
 
 import AddBlog from './components/AddBlog';
-import Header from './components/Header';
+import Header from './components/header/Header';
 import ShowBlog from './components/ShowBlog';
 import EditBlog from './components/EditBlog';
 import Feeds from './components/Feeds';
@@ -117,24 +117,24 @@ useEffect(() => {
 
 
   //================handle blog like=======================
-  const handleLike = async (id, likeCount) => {
-    const targetBlog = blogs.map(blog => (blog.id === parseInt(id) ? {...blog, like: likeCount} : blog))
-    setBlogs(targetBlog);
-    console.log(blogs)
+  // const handleLike = async (id, likeCount) => {
+  //   const targetBlog = blogs.map(blog => (blog.id === parseInt(id) ? {...blog, like: likeCount} : blog))
+  //   setBlogs(targetBlog);
+  //   console.log(blogs)
 
-    const likeUrl = `${blogUrl}/${id}`;
-    const likeOptions = {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({like: likeCount})
-    }
+  //   const likeUrl = `${blogUrl}/${id}`;
+  //   const likeOptions = {
+  //     method: 'PATCH',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({like: likeCount})
+  //   }
 
-    const response = await ApiRequest(likeUrl, likeOptions);
-    setFetchError(response);
+  //   const response = await ApiRequest(likeUrl, likeOptions);
+  //   setFetchError(response);
    
-  }
+  // }
 
 //================handle blog delete=======================
   const handleDelete = async (id) => {
@@ -176,7 +176,7 @@ useEffect(() => {
             element={<ShowBlog 
               blogs={blogs}
               handleDelete={handleDelete}
-              handleLike={handleLike}
+              // handleLike={handleLike}
             />}  
           />
           <Route 
@@ -195,6 +195,11 @@ useEffect(() => {
 }
 
 export default App;
+
+
+const Container = styled.div`
+  wid
+`
 
 
 
